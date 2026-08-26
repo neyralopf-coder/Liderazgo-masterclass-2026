@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sesión de Alto Liderazgo | Master Class 2026</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #3b2a05 0%, #120d02 45%, #050505 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 25px 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .brand {
+      color: #d6a928;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 34px;
+      color: #f5c542;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #eeeeee;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .card {
+      background: rgba(10, 10, 10, 0.94);
+      border: 1px solid #d6a928;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 0 30px rgba(214, 169, 40, 0.15);
+    }
+
+    .section-title {
+      color: #f5c542;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      border-bottom: 1px solid rgba(214, 169, 40, 0.4);
+      padding-bottom: 10px;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 7px;
+      color: #f1f1f1;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 9px;
+      border: 1px solid #555;
+      background: #171717;
+      color: white;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #d6a928;
+      box-shadow: 0 0 0 2px rgba(214, 169, 40, 0.15);
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      border: 1px solid #555;
+      background: #171717;
+      padding: 13px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .option:hover {
+      border-color: #d6a928;
+    }
+
+    .option input {
+      width: auto;
+      margin-right: 8px;
+      accent-color: #d6a928;
+    }
+
+    .evidence-box {
+      border: 1px dashed #d6a928;
+      background: rgba(214, 169, 40, 0.05);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 10px;
+    }
+
+    .warning {
+      background: rgba(214, 169, 40, 0.10);
+      border-left: 4px solid #d6a928;
+      padding: 13px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 20px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #ddd;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-top: 3px;
+      accent-color: #d6a928;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      background: linear-gradient(135deg, #f5c542, #b98512);
+      color: #080808;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 20px rgba(214, 169, 40, 0.25);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #888;
+      font-size: 11px;
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 27px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="brand">MASTER CLASS 2026</div>
+
+      <h1>Sesión de<br>Alto Liderazgo</h1>
+
+      <p class="subtitle">
+        ¿Cumpliste con alguna de las modalidades de calificación
+        durante junio, julio y agosto?
+        Registra tus datos y presenta tu evidencia para que nuestro
+        equipo pueda validar tu calificación.
+      </p>
+    </div>
+
+    <div class="card">
+
+      <div class="section-title">
+        1. Datos del participante
+      </div>
+
+      <div class="field">
+        <label for="nombres">Nombres *</label>
+        <input
+          type="text"
+          id="nombres"
+          placeholder="Ingresa tus nombres"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="apellidos">Apellidos *</label>
+        <input
+          type="text"
+          id="apellidos"
+          placeholder="Ingresa tus apellidos"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="dni">DNI *</label>
+        <input
+          type="text"
+          id="dni"
+          placeholder="Ingresa tu DNI"
+          maxlength="8"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="celular">Número de celular *</label>
+        <input
+          type="tel"
+          id="celular"
+          placeholder="Ej. 999999999"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="idHerbalife">ID de Herbalife *</label>
+        <input
+          type="text"
+          id="idHerbalife"
+          placeholder="Ingresa tu ID de Herbalife"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="nivel">Nivel *</label>
+
+        <select id="nivel" required>
+          <option value="">Selecciona tu nivel</option>
+          <option value="Supervisor">Supervisor</option>
+          <option value="WT">World Team (WT)</option>
+          <option value="TAB">TAB</option>
+        </select>
+      </div>
+
+      <br>
+
+      <div class="section-title">
+        2. Tu modalidad de calificación
+      </div>
+
+      <div class="options">
+
+        <label class="option">
+          <input
+            type="radio"
+            name="calificacion"
+            value="5000 en 1 mes"
+            required
+          >
+          S/ 5,000 en 1 mes
+        </label>
+
+        <label class="option">
+          <input
+            type="radio"
+            name="calificacion"
+            value="2500 x 3 meses"
+          >
+          S/ 2,500 × 3 meses
+        </label>
+
+        <label class="option">
+          <input
+            type="radio"
+            name="calificacion"
+            value="8000 acumulados"
+          >
+          S/ 8,000 acumulados
+        </label>
+
+      </div>
+
+      <br>
+
+      <div class="section-title">
+        3. Evidencia de calificación
+      </div>
+
+      <div class="warning">
+        <strong>⚠️ IMPORTANTE</strong><br>
+        La evidencia debe permitir identificar claramente al participante.
+        Debe aparecer tu <strong>nombre completo o tu ID de Herbalife</strong>
+        en la captura, reporte o documento presentado.
+        Las evidencias que no permitan identificar al participante
+        no podrán ser validadas.
+      </div>
+
+      <div class="evidence-box">
+
+        <label for="evidencia">
+          📸 Sube tu evidencia de calificación *
+        </label>
+
+        <input
+          type="file"
+          id="evidencia"
+          accept="image/jpeg,image/png,image/webp"
+          multiple
+          required
+        >
+
+        <p style="font-size:12px;color:#999;margin-top:10px;">
+          Puedes seleccionar una o varias imágenes.
+        </p>
+
+      </div>
+
+      <div class="checkbox">
+
+        <input type="checkbox" id="declaracion" required>
+
+        <label for="declaracion">
+          Declaro que la información proporcionada es verdadera
+          y que las evidencias presentadas corresponden a mi
+          propia calificación.
+        </label>
+
+      </div>
+
+      <button type="button">
+        Enviar mi postulación
+      </button>
+
+    </div>
+
+    <div class="footer">
+      Master Class 2026 · Sesión de Alto Liderazgo
+    </div>
+
+  </div>
+
+</body>
+</html>
