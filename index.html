@@ -695,19 +695,25 @@
             });
 
 
-        if (insertError) {
+       if (insertError) {
 
-          console.error(
-            "Error guardando registro:",
-            insertError
-          );
+  console.error(
+    "ERROR REAL DE SUPABASE:",
+    insertError
+  );
 
-          throw new Error(
-            "No se pudo guardar el registro."
-          );
+  throw new Error(
+    "Supabase: " +
+    (insertError.message || "Error desconocido") +
+    "\nCódigo: " +
+    (insertError.code || "Sin código") +
+    "\nDetalle: " +
+    (insertError.details || "Sin detalle") +
+    "\nHint: " +
+    (insertError.hint || "Sin sugerencia")
+  );
 
-        }
-
+}
 
         /* ================================================
            ÉXITO
