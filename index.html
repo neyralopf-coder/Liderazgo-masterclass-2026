@@ -161,6 +161,11 @@
       accent-color: #d6a928;
     }
 
+    .checkbox label {
+      font-weight: normal;
+      margin: 0;
+    }
+
     button {
       width: 100%;
       border: none;
@@ -178,6 +183,12 @@
     button:hover {
       transform: translateY(-1px);
       box-shadow: 0 5px 20px rgba(214, 169, 40, 0.25);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
     }
 
     .footer {
@@ -204,9 +215,15 @@
   <div class="container">
 
     <div class="header">
-      <div class="brand">MASTER CLASS 2026</div>
 
-      <h1>Sesión de<br>Alto Liderazgo</h1>
+      <div class="brand">
+        MASTER CLASS 2026
+      </div>
+
+      <h1>
+        Sesión de<br>
+        Alto Liderazgo
+      </h1>
 
       <p class="subtitle">
         ¿Cumpliste con alguna de las modalidades de calificación
@@ -214,16 +231,22 @@
         Registra tus datos y presenta tu evidencia para que nuestro
         equipo pueda validar tu calificación.
       </p>
+
     </div>
 
     <div class="card">
+
+      <!-- DATOS -->
 
       <div class="section-title">
         1. Datos del participante
       </div>
 
       <div class="field">
-        <label for="nombres">Nombres *</label>
+        <label for="nombres">
+          Nombres *
+        </label>
+
         <input
           type="text"
           id="nombres"
@@ -233,7 +256,10 @@
       </div>
 
       <div class="field">
-        <label for="apellidos">Apellidos *</label>
+        <label for="apellidos">
+          Apellidos *
+        </label>
+
         <input
           type="text"
           id="apellidos"
@@ -242,9 +268,11 @@
         >
       </div>
 
-      
       <div class="field">
-        <label for="celular">Número de celular *</label>
+        <label for="celular">
+          Número de celular *
+        </label>
+
         <input
           type="tel"
           id="celular"
@@ -254,7 +282,10 @@
       </div>
 
       <div class="field">
-        <label for="idHerbalife">ID de Herbalife *</label>
+        <label for="idHerbalife">
+          ID de Herbalife *
+        </label>
+
         <input
           type="text"
           id="idHerbalife"
@@ -264,17 +295,32 @@
       </div>
 
       <div class="field">
-        <label for="nivel">Nivel *</label>
+        <label for="nivel">
+          Nivel *
+        </label>
 
         <select id="nivel" required>
-          <option value="">Selecciona tu nivel</option>
-          <option value="Supervisor">Supervisor</option>
-          <option value="WT">World Team (WT)</option>
-          <option value="TAB">TAB</option>
+          <option value="">
+            Selecciona tu nivel
+          </option>
+
+          <option value="Supervisor">
+            Supervisor
+          </option>
+
+          <option value="WT">
+            World Team (WT)
+          </option>
+
+          <option value="TAB">
+            TAB
+          </option>
         </select>
       </div>
 
       <br>
+
+      <!-- CALIFICACION -->
 
       <div class="section-title">
         2. Tu modalidad de calificación
@@ -289,6 +335,7 @@
             value="5000 en 1 mes"
             required
           >
+
           S/ 5,000 en 1 mes
         </label>
 
@@ -298,6 +345,7 @@
             name="calificacion"
             value="2500 x 3 meses"
           >
+
           S/ 2,500 × 3 meses
         </label>
 
@@ -307,6 +355,7 @@
             name="calificacion"
             value="8000 acumulados"
           >
+
           S/ 8,000 acumulados
         </label>
 
@@ -314,17 +363,31 @@
 
       <br>
 
+      <!-- EVIDENCIA -->
+
       <div class="section-title">
         3. Evidencia de calificación
       </div>
 
       <div class="warning">
-        <strong>⚠️ IMPORTANTE</strong><br>
-        La evidencia debe permitir identificar claramente al participante.
-        Debe aparecer tu <strong>nombre completo o tu ID de Herbalife</strong>
+
+        <strong>⚠️ IMPORTANTE</strong>
+        <br><br>
+
+        La evidencia debe permitir identificar claramente
+        al participante.
+
+        <br><br>
+
+        Debe aparecer tu
+        <strong>nombre completo o tu ID de Herbalife</strong>
         en la captura, reporte o documento presentado.
+
+        <br><br>
+
         Las evidencias que no permitan identificar al participante
         no podrán ser validadas.
+
       </div>
 
       <div class="evidence-box">
@@ -342,24 +405,38 @@
         >
 
         <p style="font-size:12px;color:#999;margin-top:10px;">
-          Puedes seleccionar una o varias imágenes.
+          Puedes seleccionar hasta 5 imágenes.
+          Máximo 10 MB por imagen.
         </p>
 
       </div>
 
+      <!-- DECLARACION -->
+
       <div class="checkbox">
 
-        <input type="checkbox" id="declaracion" required>
+        <input
+          type="checkbox"
+          id="declaracion"
+          required
+        >
 
         <label for="declaracion">
+
           Declaro que la información proporcionada es verdadera
           y que las evidencias presentadas corresponden a mi
           propia calificación.
+
         </label>
 
       </div>
 
-      <button type="button">
+      <!-- BOTON -->
+
+      <button
+        type="button"
+        id="enviarBtn"
+      >
         Enviar mi postulación
       </button>
 
@@ -370,6 +447,333 @@
     </div>
 
   </div>
+
+
+  <!-- ================================================= -->
+  <!-- SUPABASE -->
+  <!-- ================================================= -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://pvoogefvaqimtdkvtoln.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2b29nZWZ2YXFpbXRka3Z0b2xuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc2OTgzMDEsImV4cCI6MjEwMzI3NDMwMX0.1EKciTT0ik7bEEsHK8-CE6TXHf3ZnXP0U08IxhdWzwY";
+
+    const supabaseClient =
+      supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
+
+
+    /* ================================================
+       ELEMENTOS
+    ================================================ */
+
+    const boton =
+      document.getElementById("enviarBtn");
+
+    const evidenciaInput =
+      document.getElementById("evidencia");
+
+
+    /* ================================================
+       ENVIO DEL FORMULARIO
+    ================================================ */
+
+    boton.addEventListener("click", async () => {
+
+      const nombres =
+        document.getElementById("nombres").value.trim();
+
+      const apellidos =
+        document.getElementById("apellidos").value.trim();
+
+      const celular =
+        document.getElementById("celular").value.trim();
+
+      const idHerbalife =
+        document.getElementById("idHerbalife").value.trim();
+
+      const nivel =
+        document.getElementById("nivel").value;
+
+      const calificacionElement =
+        document.querySelector(
+          "input[name='calificacion']:checked"
+        );
+
+      const calificacion =
+        calificacionElement
+          ? calificacionElement.value
+          : "";
+
+      const declaracion =
+        document.getElementById("declaracion").checked;
+
+      const archivos =
+        evidenciaInput.files;
+
+
+      /* ================================================
+         VALIDACIONES
+      ================================================ */
+
+      if (
+        !nombres ||
+        !apellidos ||
+        !celular ||
+        !idHerbalife ||
+        !nivel ||
+        !calificacion ||
+        !archivos.length ||
+        !declaracion
+      ) {
+
+        alert(
+          "⚠️ Por favor completa todos los campos y adjunta tu evidencia."
+        );
+
+        return;
+      }
+
+
+      if (archivos.length > 5) {
+
+        alert(
+          "⚠️ Puedes subir como máximo 5 evidencias."
+        );
+
+        return;
+      }
+
+
+      /* ================================================
+         VALIDAR TAMAÑO Y TIPO
+      ================================================ */
+
+      const tiposPermitidos = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+      ];
+
+
+      for (const archivo of archivos) {
+
+        if (!tiposPermitidos.includes(archivo.type)) {
+
+          alert(
+            "❌ Solo puedes subir imágenes JPG, PNG o WEBP."
+          );
+
+          return;
+        }
+
+
+        if (archivo.size > 10 * 1024 * 1024) {
+
+          alert(
+            `❌ La imagen "${archivo.name}" supera los 10 MB.`
+          );
+
+          return;
+        }
+
+      }
+
+
+      /* ================================================
+         ESTADO DEL BOTON
+      ================================================ */
+
+      boton.disabled = true;
+
+      boton.textContent =
+        "ENVIANDO...";
+
+
+      try {
+
+        /* ================================================
+           CREAR CARPETA UNICA
+        ================================================ */
+
+        const carpeta =
+          crypto.randomUUID();
+
+        const rutas = [];
+
+
+        /* ================================================
+           SUBIR EVIDENCIAS
+        ================================================ */
+
+        for (const archivo of archivos) {
+
+          const extension =
+            archivo.name
+              .split(".")
+              .pop()
+              .toLowerCase();
+
+
+          const nombreArchivo =
+            `${Date.now()}-${crypto.randomUUID()}.${extension}`;
+
+
+          const ruta =
+            `${carpeta}/${nombreArchivo}`;
+
+
+          const { error: uploadError } =
+            await supabaseClient
+              .storage
+              .from("evidencias-liderazgo")
+              .upload(
+                ruta,
+                archivo,
+                {
+                  cacheControl: "3600",
+                  upsert: false,
+                  contentType: archivo.type
+                }
+              );
+
+
+          if (uploadError) {
+
+            console.error(
+              "Error subiendo evidencia:",
+              uploadError
+            );
+
+            throw new Error(
+              "No se pudo subir una de las evidencias."
+            );
+
+          }
+
+
+          rutas.push(ruta);
+
+        }
+
+
+        /* ================================================
+           GUARDAR REGISTRO
+        ================================================ */
+
+        const { error: insertError } =
+          await supabaseClient
+            .from("calificados_liderazgo")
+            .insert({
+
+              nombres: nombres,
+
+              apellidos: apellidos,
+
+              celular: celular,
+
+              id_herbalife: idHerbalife,
+
+              nivel: nivel,
+
+              "tipo_calificación":
+                calificacion,
+
+              evidencias:
+                JSON.stringify(rutas),
+
+              estado:
+                "Pendiente"
+
+            });
+
+
+        if (insertError) {
+
+          console.error(
+            "Error guardando registro:",
+            insertError
+          );
+
+          throw new Error(
+            "No se pudo guardar el registro."
+          );
+
+        }
+
+
+        /* ================================================
+           ÉXITO
+        ================================================ */
+
+        alert(
+          "✅ ¡REGISTRO ENVIADO CORRECTAMENTE!\n\n" +
+          "Tu postulación quedó registrada como PENDIENTE de validación.\n\n" +
+          "Nuestro equipo revisará tu evidencia."
+        );
+
+
+        /* Limpiar campos */
+
+        document.getElementById("nombres").value = "";
+
+        document.getElementById("apellidos").value = "";
+
+        document.getElementById("celular").value = "";
+
+        document.getElementById("idHerbalife").value = "";
+
+        document.getElementById("nivel").value = "";
+
+        document
+          .querySelectorAll(
+            "input[name='calificacion']"
+          )
+          .forEach(
+            radio => radio.checked = false
+          );
+
+        document.getElementById(
+          "declaracion"
+        ).checked = false;
+
+        evidenciaInput.value = "";
+
+
+        boton.disabled = false;
+
+        boton.textContent =
+          "ENVIAR MI POSTULACIÓN";
+
+
+      } catch (error) {
+
+        console.error(error);
+
+
+        alert(
+          "❌ No pudimos enviar tu registro.\n\n" +
+          "Por favor inténtalo nuevamente."
+        );
+
+
+        boton.disabled = false;
+
+        boton.textContent =
+          "ENVIAR MI POSTULACIÓN";
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
