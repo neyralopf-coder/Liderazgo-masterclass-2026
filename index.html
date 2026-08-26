@@ -755,22 +755,19 @@
 
       } catch (error) {
 
-        console.error(error);
+  console.error("ERROR COMPLETO:", error);
 
+  alert(
+    "❌ ERROR AL ENVIAR\n\n" +
+    "Mensaje: " + (error.message || "Error desconocido") +
+    "\n\nCódigo: " + (error.code || "Sin código")
+  );
 
-        alert(
-          "❌ No pudimos enviar tu registro.\n\n" +
-          "Por favor inténtalo nuevamente."
-        );
-
-
-        boton.disabled = false;
-
-        boton.textContent =
-          "ENVIAR MI POSTULACIÓN";
-
-      }
-
+  boton.disabled = false;
+  boton.textContent =
+    "ENVIAR MI POSTULACIÓN";
+}
+      
     });
 
   </script>
